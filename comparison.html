@@ -3,136 +3,774 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интерактивное Сравнение Маркетплейсов</title>
+    <title>Сравнение маркетплейсов Казахстана 2026 | Интерактивный калькулятор</title>
+    <meta name="description" content="Интерактивная таблица сравнения комиссий и условий Kaspi, Ozon, Wildberries и других маркетплейсов Казахстана. Рассчитайте свою прибыль онлайн.">
+    <meta name="robots" content="index, follow">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root { --primary: #4f46e5; --bg: #f8fafc; --text: #1e293b; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 40px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        h1 { margin-bottom: 30px; text-align: center; color: var(--primary); }
-        .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; background: #f1f5f9; padding: 25px; border-radius: 16px; }
-        input, select { padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; width: 100%; }
-        .table-container { overflow-x: auto; margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background: #f8fafc; font-weight: 700; }
-        .profit-high { color: #10b981; font-weight: 700; }
-        .profit-low { color: #ef4444; }
-        .chart-container { height: 400px; margin-top: 50px; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: 600; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .control-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .control-group input,
+        .control-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .control-group input:focus,
+        .control-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        button.secondary {
+            background: #999;
+        }
+        
+        button.secondary:hover {
+            background: #777;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        table th:hover {
+            background: #764ba2;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        table tr.highlight {
+            background: #fffacd;
+        }
+        
+        .marketplace-name {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .low-commission {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .high-commission {
+            color: #f44336;
+        }
+        
+        .medium-commission {
+            color: #ff9800;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .stat-box .value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .filters-applied {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .filter-tag {
+            display: inline-block;
+            background: #2196f3;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        
+        .filter-tag .remove {
+            cursor: pointer;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .metric {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .metric-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .profit-calculator {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .profit-calculator h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .profit-input {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .profit-input input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .profit-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .profit-result {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .profit-result-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .profit-result-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #4caf50;
+        }
+        
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.85em;
+            }
+            
+            table th, table td {
+                padding: 8px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-link">← Вернуться на главную</a>
-        <h1>📊 Интерактивный Анализ Маркетплейсов</h1>
+        <header>
+            <h1>📊 Интерактивное сравнение маркетплейсов</h1>
+            <p>Анализируйте комиссии, доставку и прибыль в реальном времени</p>
+        </header>
         
         <div class="controls">
-            <div>
-                <label>Цена закупа (тг):</label>
-                <input type="number" id="buyPrice" value="2000" oninput="updateAll()">
+            <div class="control-group">
+                <label for="maxCommission">Макс. комиссия (%):</label>
+                <input type="number" id="maxCommission" placeholder="Например: 15" value="20">
             </div>
-            <div>
-                <label>Цена продажи (тг):</label>
-                <input type="number" id="sellPrice" value="6000" oninput="updateAll()">
-            </div>
-            <div>
-                <label>Сортировать по:</label>
-                <select id="sortBy" onchange="updateAll()">
-                    <option value="profit">Прибыли (убывание)</option>
-                    <option value="commission">Комиссии (возрастание)</option>
+            
+            <div class="control-group">
+                <label for="deliveryType">Тип доставки:</label>
+                <select id="deliveryType">
+                    <option value="">Все</option>
+                    <option value="FBS">FBS (ваш склад)</option>
+                    <option value="FBO">FBO (их склад)</option>
+                    <option value="Самовывоз">Самовывоз</option>
                 </select>
             </div>
+            
+            <div class="control-group">
+                <label for="sortBy">Сортировать по:</label>
+                <select id="sortBy">
+                    <option value="name">Названию</option>
+                    <option value="commission">Комиссии (возрастание)</option>
+                    <option value="profit">Прибыли (убывание)</option>
+                    <option value="payoutTime">Срокам выплат</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="salePrice">Цена продажи (тг):</label>
+                <input type="number" id="salePrice" placeholder="Например: 3500" value="3500">
+            </div>
+            
+            <div class="control-group">
+                <label for="purchasePrice">Цена закупа (тг):</label>
+                <input type="number" id="purchasePrice" placeholder="Например: 800" value="800">
+            </div>
+            
+            <div class="control-group button-group">
+                <button onclick="filterAndSort()">🔍 Применить фильтры</button>
+                <button class="secondary" onclick="resetFilters()">↺ Сбросить</button>
+            </div>
         </div>
-
-        <div class="table-container">
-            <table id="compareTable">
-                <thead>
-                    <tr>
-                        <th>Маркетплейс</th>
-                        <th>Комиссия</th>
-                        <th>Логистика</th>
-                        <th>Налог (3%)</th>
-                        <th>Чистая прибыль</th>
-                        <th>ROI</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-            </table>
+        
+        <div id="filtersApplied" class="filters-applied" style="display: none;"></div>
+        
+        <div class="content">
+            <div class="card">
+                <h2>📈 Таблица сравнения</h2>
+                <div class="table-wrapper">
+                    <table id="comparisonTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable('name')">Маркетплейс</th>
+                                <th onclick="sortTable('commission')">Комиссия</th>
+                                <th onclick="sortTable('delivery')">Доставка</th>
+                                <th onclick="sortTable('payoutTime')">Выплаты</th>
+                                <th onclick="sortTable('profit')">Прибыль</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Статистика</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="label">Средняя комиссия</div>
+                        <div class="value" id="avgCommission">0%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Минимальная</div>
+                        <div class="value" id="minCommission">0%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Максимальная</div>
+                        <div class="value" id="maxCommissionValue">0%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="label">Средняя прибыль</div>
+                        <div class="value" id="avgProfit">0 тг</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container" style="margin-top: 30px;">
+                    <canvas id="commissionChart"></canvas>
+                </div>
+            </div>
         </div>
-
-        <div class="chart-container">
-            <canvas id="profitChart"></canvas>
+        
+        <div class="card">
+            <h2>💰 Анализ прибыли</h2>
+            <div class="chart-container">
+                <canvas id="profitChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🎯 Калькулятор прибыли</h2>
+            <div class="profit-calculator">
+                <h3>Рассчитайте прибыль для вашего товара</h3>
+                <div class="profit-input">
+                    <div>
+                        <label>Цена закупа (тг):</label>
+                        <input type="number" id="calcPurchase" placeholder="800" value="800">
+                    </div>
+                    <div>
+                        <label>Цена продажи (тг):</label>
+                        <input type="number" id="calcSale" placeholder="3500" value="3500">
+                    </div>
+                </div>
+                <button onclick="calculateAllProfits()">Рассчитать для всех маркетплейсов</button>
+                <div id="profitTableContainer" style="margin-top: 20px;"></div>
+            </div>
         </div>
     </div>
-
+    
     <script>
-        const markets = [
-            { name: "Kaspi.kz", comm: 0.15, ship: 500 },
-            { name: "Ozon.kz", comm: 0.12, ship: 600 },
-            { name: "Wildberries", comm: 0.18, ship: 450 },
-            { name: "Satu.kz", comm: 0.05, ship: 300 },
-            { name: "Halyk Market", comm: 0.10, ship: 550 },
-            { name: "Jusan Магазин", comm: 0.12, ship: 500 },
-            { name: "OLX (Бизнес)", comm: 0.02, ship: 800 }
+        const marketplaces = [
+            {
+                name: 'Kaspi.kz',
+                commission: 12.95,
+                delivery: 'FBS',
+                payoutTime: '1 день',
+                minDelivery: 500,
+                maxDelivery: 1000,
+                traffic: 'Очень высокий',
+                requirements: 'ИП + Kaspi Pay'
+            },
+            {
+                name: 'Wildberries.kz',
+                commission: 10,
+                delivery: 'FBS/FBO',
+                payoutTime: '3-5 дней',
+                minDelivery: 600,
+                maxDelivery: 700,
+                traffic: 'Очень высокий',
+                requirements: 'ИП + документы'
+            },
+            {
+                name: 'Ozon.kz',
+                commission: 12.5,
+                delivery: 'FBS/FBO',
+                payoutTime: '5-7 дней',
+                minDelivery: 600,
+                maxDelivery: 700,
+                traffic: 'Высокий',
+                requirements: 'ИП + документы'
+            },
+            {
+                name: 'Satu.kz',
+                commission: 5.5,
+                delivery: 'FBS',
+                payoutTime: '2-3 дня',
+                minDelivery: 600,
+                maxDelivery: 600,
+                traffic: 'Средний',
+                requirements: 'ИП'
+            },
+            {
+                name: 'Flip.kz',
+                commission: 3.5,
+                delivery: 'FBS',
+                payoutTime: '1-2 дня',
+                minDelivery: 600,
+                maxDelivery: 600,
+                traffic: 'Низкий',
+                requirements: 'ИП'
+            },
+            {
+                name: 'Mechta.kz',
+                commission: 7.5,
+                delivery: 'FBS',
+                payoutTime: '3-5 дней',
+                minDelivery: 600,
+                maxDelivery: 600,
+                traffic: 'Низкий',
+                requirements: 'ИП'
+            },
+            {
+                name: 'Halyk Market',
+                commission: 5,
+                delivery: 'FBS',
+                payoutTime: '2-3 дня',
+                minDelivery: 600,
+                maxDelivery: 600,
+                traffic: 'Низкий',
+                requirements: 'ИП'
+            },
+            {
+                name: 'OLX.kz',
+                commission: 0,
+                delivery: 'Самовывоз',
+                payoutTime: 'Наличные',
+                minDelivery: 500,
+                maxDelivery: 500,
+                traffic: 'Средний',
+                requirements: 'Нет'
+            },
+            {
+                name: 'Jusan Магазин',
+                commission: 8.5,
+                delivery: 'FBS',
+                payoutTime: '5-7 дней',
+                minDelivery: 600,
+                maxDelivery: 600,
+                traffic: 'Низкий',
+                requirements: 'ИП'
+            }
         ];
-
-        let chart;
-
-        function updateAll() {
-            const buy = parseFloat(document.getElementById('buyPrice').value) || 0;
-            const sell = parseFloat(document.getElementById('sellPrice').value) || 0;
-            const sort = document.getElementById('sortBy').value;
-
-            let data = markets.map(m => {
-                const commVal = sell * m.comm;
-                const tax = sell * 0.03;
-                const profit = sell - buy - commVal - m.ship - tax;
-                const roi = buy > 0 ? (profit / buy * 100) : 0;
-                return { ...m, profit, roi, commVal };
-            });
-
-            if (sort === "profit") data.sort((a, b) => b.profit - a.profit);
-            else data.sort((a, b) => a.comm - b.comm);
-
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = data.map(m => `
-                <tr>
-                    <td><strong>${m.name}</strong></td>
-                    <td>${(m.comm * 100).toFixed(0)}% (${Math.round(m.commVal)} тг)</td>
-                    <td>${m.ship} тг</td>
-                    <td>${Math.round(sell * 0.03)} тг</td>
-                    <td class="${m.profit > 0 ? 'profit-high' : 'profit-low'}">${Math.round(m.profit).toLocaleString()} тг</td>
-                    <td>${Math.round(m.roi)}%</td>
-                </tr>
-            `).join('');
-
-            updateChart(data);
+        
+        let filteredMarketplaces = [...marketplaces];
+        let charts = {};
+        
+        function calculateProfit(marketplace, salePrice, purchasePrice) {
+            const commission = (salePrice * marketplace.commission) / 100;
+            const tax = (salePrice * 3) / 100;
+            const packaging = 100;
+            const logistics = (marketplace.minDelivery + marketplace.maxDelivery) / 2;
+            const totalCosts = purchasePrice + commission + tax + packaging + logistics;
+            const profit = salePrice - totalCosts;
+            return Math.round(profit);
         }
-
-        function updateChart(data) {
-            const ctx = document.getElementById('profitChart').getContext('2d');
-            if (chart) chart.destroy();
-            chart = new Chart(ctx, {
+        
+        function renderTable() {
+            const salePrice = parseFloat(document.getElementById('salePrice').value) || 3500;
+            const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 800;
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            filteredMarketplaces.forEach(mp => {
+                const profit = calculateProfit(mp, salePrice, purchasePrice);
+                const commissionClass = mp.commission <= 5 ? 'low-commission' : mp.commission <= 10 ? 'medium-commission' : 'high-commission';
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="marketplace-name">${mp.name}</td>
+                    <td class="${commissionClass}">${mp.commission}%</td>
+                    <td>${mp.delivery}</td>
+                    <td>${mp.payoutTime}</td>
+                    <td style="font-weight: bold; color: #4caf50;">${profit} тг</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function updateStats() {
+            const salePrice = parseFloat(document.getElementById('salePrice').value) || 3500;
+            const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 800;
+            
+            const commissions = filteredMarketplaces.map(mp => mp.commission);
+            const profits = filteredMarketplaces.map(mp => calculateProfit(mp, salePrice, purchasePrice));
+            
+            const avgCommission = (commissions.reduce((a, b) => a + b, 0) / commissions.length).toFixed(2);
+            const minCommission = Math.min(...commissions);
+            const maxCommission = Math.max(...commissions);
+            const avgProfit = Math.round(profits.reduce((a, b) => a + b, 0) / profits.length);
+            
+            document.getElementById('avgCommission').textContent = avgCommission + '%';
+            document.getElementById('minCommission').textContent = minCommission + '%';
+            document.getElementById('maxCommissionValue').textContent = maxCommission + '%';
+            document.getElementById('avgProfit').textContent = avgProfit.toLocaleString() + ' тг';
+            
+            updateCharts(salePrice, purchasePrice);
+        }
+        
+        function updateCharts(salePrice, purchasePrice) {
+            const names = filteredMarketplaces.map(mp => mp.name);
+            const commissions = filteredMarketplaces.map(mp => mp.commission);
+            const profits = filteredMarketplaces.map(mp => calculateProfit(mp, salePrice, purchasePrice));
+            
+            // Commission Chart
+            if (charts.commission) charts.commission.destroy();
+            const commissionCtx = document.getElementById('commissionChart').getContext('2d');
+            charts.commission = new Chart(commissionCtx, {
                 type: 'bar',
                 data: {
-                    labels: data.map(m => m.name),
+                    labels: names,
                     datasets: [{
-                        label: 'Чистая прибыль (тг)',
-                        data: data.map(m => m.profit),
-                        backgroundColor: data.map(m => m.profit > 0 ? '#4f46e5' : '#ef4444'),
-                        borderRadius: 8
+                        label: 'Комиссия (%)',
+                        data: commissions,
+                        backgroundColor: commissions.map(c => c <= 5 ? '#4caf50' : c <= 10 ? '#ff9800' : '#f44336'),
+                        borderRadius: 5
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { y: { beginAtZero: true } }
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+            
+            // Profit Chart
+            if (charts.profit) charts.profit.destroy();
+            const profitCtx = document.getElementById('profitChart').getContext('2d');
+            charts.profit = new Chart(profitCtx, {
+                type: 'bar',
+                data: {
+                    labels: names,
+                    datasets: [{
+                        label: 'Прибыль (тг)',
+                        data: profits,
+                        backgroundColor: '#667eea',
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
                 }
             });
         }
-
-        updateAll();
+        
+        function filterAndSort() {
+            const maxCommission = parseFloat(document.getElementById('maxCommission').value) || 100;
+            const deliveryType = document.getElementById('deliveryType').value;
+            const sortBy = document.getElementById('sortBy').value;
+            
+            filteredMarketplaces = marketplaces.filter(mp => {
+                if (mp.commission > maxCommission) return false;
+                if (deliveryType && !mp.delivery.includes(deliveryType)) return false;
+                return true;
+            });
+            
+            if (sortBy === 'commission') {
+                filteredMarketplaces.sort((a, b) => a.commission - b.commission);
+            } else if (sortBy === 'profit') {
+                const salePrice = parseFloat(document.getElementById('salePrice').value) || 3500;
+                const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 800;
+                filteredMarketplaces.sort((a, b) => calculateProfit(b, salePrice, purchasePrice) - calculateProfit(a, salePrice, purchasePrice));
+            } else if (sortBy === 'name') {
+                filteredMarketplaces.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            
+            showFiltersApplied(maxCommission, deliveryType, sortBy);
+            renderTable();
+            updateStats();
+        }
+        
+        function showFiltersApplied(maxCommission, deliveryType, sortBy) {
+            const container = document.getElementById('filtersApplied');
+            let html = '<strong>Активные фильтры:</strong> ';
+            const tags = [];
+            
+            if (maxCommission < 100) tags.push(`Комиссия ≤ ${maxCommission}%`);
+            if (deliveryType) tags.push(`Доставка: ${deliveryType}`);
+            if (sortBy !== 'name') tags.push(`Сортировка: ${sortBy}`);
+            
+            if (tags.length > 0) {
+                html += tags.map(tag => `<span class="filter-tag">${tag}</span>`).join('');
+                container.innerHTML = html;
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+        
+        function resetFilters() {
+            document.getElementById('maxCommission').value = '20';
+            document.getElementById('deliveryType').value = '';
+            document.getElementById('sortBy').value = 'name';
+            filteredMarketplaces = [...marketplaces];
+            document.getElementById('filtersApplied').style.display = 'none';
+            renderTable();
+            updateStats();
+        }
+        
+        function sortTable(column) {
+            if (column === 'commission') {
+                filteredMarketplaces.sort((a, b) => a.commission - b.commission);
+            } else if (column === 'name') {
+                filteredMarketplaces.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            renderTable();
+        }
+        
+        function calculateAllProfits() {
+            const purchasePrice = parseFloat(document.getElementById('calcPurchase').value) || 800;
+            const salePrice = parseFloat(document.getElementById('calcSale').value) || 3500;
+            
+            let html = '<table style="width: 100%; border-collapse: collapse;">';
+            html += '<tr style="background: #667eea; color: white;"><th style="padding: 10px; text-align: left;">Маркетплейс</th><th style="padding: 10px; text-align: right;">Прибыль</th></tr>';
+            
+            const profits = marketplaces.map(mp => ({
+                name: mp.name,
+                profit: calculateProfit(mp, salePrice, purchasePrice)
+            })).sort((a, b) => b.profit - a.profit);
+            
+            profits.forEach(p => {
+                html += `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px;">${p.name}</td><td style="padding: 10px; text-align: right; font-weight: bold; color: #4caf50;">${p.profit.toLocaleString()} тг</td></tr>`;
+            });
+            
+            html += '</table>';
+            document.getElementById('profitTableContainer').innerHTML = html;
+        }
+        
+        // Initial render
+        renderTable();
+        updateStats();
     </script>
 </body>
 </html>
