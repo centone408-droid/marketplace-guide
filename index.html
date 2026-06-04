@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнес на Маркетплейсах: Полный Гайд от А до Я | Запуск из Атырау</title>
+    <meta name="description" content="Бесплатный интерактивный гайд по запуску бизнеса на Kaspi, Ozon и Wildberries. Пошаговая инструкция, калькулятор прибыли и аналитика для предпринимателей Казахстана.">
+    <meta name="keywords" content="маркетплейсы казахстан, бизнес на каспи, как продавать на озон, бизнес из атырау, цифровые товары, закупка из китая 1688, калькулятор прибыли маркетплейс">
+    <meta name="author" content="Marketplace Guide">
+    <meta property="og:title" content="Бизнес на Маркетплейсах: Полный Гайд от А до Я">
+    <meta property="og:description" content="Узнайте как запустить прибыльный бизнес на маркетплейсах из Атырау. Все отчеты и калькуляторы в одном месте.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-tabs button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-tabs button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav-tabs button.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content-section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .calculator {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .calc-input {
+            margin: 15px 0;
+        }
+        
+        .calc-input label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .calc-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .calc-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .calc-button:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        
+        .result {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #c8e6c9;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .step-list li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .pros {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .cons {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+        
+        .pros h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .cons h4 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+        
+        .pros ul, .cons ul {
+            list-style-position: inside;
+            color: #555;
+        }
+        
+        .pros li, .cons li {
+            margin: 8px 0;
+        }
+        
+        .address-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .address-box strong {
+            color: #1565c0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Marketplace Business Guide</h1>
+            <p>Полный путеводитель по продаже игрушек на Kaspi и Ozon из Атырау</p>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="nav-btn active" onclick="showSection('home')">Главная</button>
+            <button class="nav-btn" onclick="showSection('purchase')">Закупка</button>
+            <button class="nav-btn" onclick="showSection('resale')">Перепродажа</button>
+            <button class="nav-btn" onclick="showSection('platforms')">Площадки</button>
+            <button class="nav-btn" onclick="showSection('marketplaces')">Маркетплейсы</button>
+            <button class="nav-btn" onclick="showSection('atyrau')">Атырау</button>
+            <button class="nav-btn" onclick="showSection('calculator')">Калькулятор</button>
+            <button class="nav-btn" onclick="window.open('comparison.html', '_blank')">📊 Интерактив</button>
+            <button class="nav-btn" onclick="window.open('advanced-comparison.html', '_blank')">🚀 Продвинутый Анализ</button>
+            <button class="nav-btn" onclick="window.open('audit-service.html', '_blank')" style="background: #10b981; color: white;">💰 Заказать Аудит</button>
+        </div>
+        
+        <!-- ГЛАВНАЯ -->
+        <div id="home" class="content-section active">
+            <h2>Добро пожаловать!</h2>
+            <p>Это полный интерактивный гайд по бизнесу перепродажи игрушек на казахстанских маркетплейсах.</p>
+            
+            <h3>Что вы узнаете:</h3>
+            <ul class="step-list">
+                <li><strong>Закупка:</strong> Где выгоднее брать товары, логистика из Китая, расходы и сроки.</li>
+                <li><strong>Перепродажа:</strong> Как продавать на Kaspi и Ozon, работа в Атырау, операционная деятельность.</li>
+                <li><strong>Площадки:</strong> Сравнение Temu, 1688, Alibaba, Pinduoduo и Taobao.</li>
+                <li><strong>Специфика Атырау:</strong> Адреса пунктов приема, логистика, упаковка.</li>
+                <li><strong>Калькулятор:</strong> Рассчитайте прибыль для любого товара.</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>💡 Ключевой факт:</strong> При правильном выборе товара и маршрута логистики, ROI может достигать 150-200% на первой партии.
+            </div>
+        </div>
+        
+        <!-- ЗАКУПКА -->
+        <div id="purchase" class="content-section">
+            <h2>Закупка товаров: От А до Я</h2>
+            
+            <h3>Маршрут доставки</h3>
+            <p><strong>Китай (Гуанчжоу/Иу) → Алматы → Атырау</strong></p>
+            
+            <h3>Расходы на логистику</h3>
+            <table>
+                <tr>
+                    <th>Статья расходов</th>
+                    <th>Стоимость</th>
+                    <th>Примечание</th>
+                </tr>
+                <tr>
+                    <td>Выкуп товара</td>
+                    <td>Цена + 3-5%</td>
+                    <td>Комиссия посредника</td>
+                </tr>
+                <tr>
+                    <td>Доставка по Китаю</td>
+                    <td>$0.5 - $1/кг</td>
+                    <td>От завода до склада карго</td>
+                </tr>
+                <tr>
+                    <td>Карго (Китай - Алматы)</td>
+                    <td>$1.5 - $3.5/кг</td>
+                    <td>Зависит от плотности</td>
+                </tr>
+                <tr>
+                    <td>Доставка Алматы - Атырау</td>
+                    <td>150-300 тг/кг</td>
+                    <td>Местные перевозчики</td>
+                </tr>
+                <tr>
+                    <td><strong>ИТОГО</strong></td>
+                    <td><strong>$3-5/кг</strong></td>
+                    <td><strong>1400-2300 тг/кг</strong></td>
+                </tr>
+            </table>
+            
+            <h3>Время доставки</h3>
+            <ul class="step-list">
+                <li>Сбор заказа в Китае: 2-4 дня</li>
+                <li>Китай → Алматы (Авто): 10-15 дней</li>
+                <li>Алматы → Атырау: 4-6 дней</li>
+                <li><strong>ОБЩЕЕ ВРЕМЯ: 20-25 дней</strong></li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>⚠️ Совет:</strong> Первую партию возьмите на Барахолке в Алматы. Это выйдет на 20% дороже, но вы получите товар за 7 дней.
+            </div>
+        </div>
+        
+        <!-- ПЕРЕПРОДАЖА -->
+        <div id="resale" class="content-section">
+            <h2>Перепродажа: Операционная деятельность</h2>
+            
+            <h3>Экономика на 100 товаров</h3>
+            <table>
+                <tr>
+                    <th>Статья</th>
+                    <th>Сумма (KZT)</th>
+                    <th>Примечание</th>
+                </tr>
+                <tr>
+                    <td>Закуп 100 ед. по 800 тг</td>
+                    <td>80 000</td>
+                    <td>Средняя цена</td>
+                </tr>
+                <tr>
+                    <td>Доставка из Китая (20 кг)</td>
+                    <td>40 000</td>
+                    <td>$4/кг</td>
+                </tr>
+                <tr>
+                    <td>Упаковка (100 тг/ед)</td>
+                    <td>10 000</td>
+                    <td>Пакеты, пленка, этикетки</td>
+                </tr>
+                <tr>
+                    <td>Маркетинг</td>
+                    <td>15 000</td>
+                    <td>Скидки, акции</td>
+                </tr>
+                <tr>
+                    <td><strong>ИТОГО ЗАТРАТ</strong></td>
+                    <td><strong>145 000</strong></td>
+                    <td><strong>1 450 тг/ед</strong></td>
+                </tr>
+            </table>
+            
+            <h3>Выручка и прибыль</h3>
+            <div class="calculator">
+                <p><strong>100 ед. × 3 500 тг = 350 000 тг (выручка)</strong></p>
+                <p><strong>Комиссии МП + Налоги (15%): 52 500 тг</strong></p>
+                <p style="font-size: 1.2em; color: #4caf50;"><strong>ЧИСТАЯ ПРИБЫЛЬ: 152 500 тг</strong></p>
+            </div>
+            
+            <h3>Ежедневная рутина в Атырау</h3>
+            <ul class="step-list">
+                <li>09:00 - 10:00: Проверка новых заказов, подтверждение</li>
+                <li>10:00 - 12:00: Сборка, упаковка, печать накладных</li>
+                <li>13:00 - 14:00: Поездка в пункт приема (ППЗ)</li>
+                <li>Вечер: Ответы на вопросы, работа с отзывами</li>
+            </ul>
+        </div>
+        
+        <!-- МАРКЕТПЛЕЙСЫ И МАГАЗИНЫ -->
+        <div id="marketplaces" class="content-section">
+            <h2>Маркетплейсы и магазины для продажи из Атырау</h2>
+            
+            <h3>Топ маркетплейсов Казахстана 2026</h3>
+            <table>
+                <tr>
+                    <th>Маркетплейс</th>
+                    <th>Комиссия</th>
+                    <th>Доставка</th>
+                    <th>Требования</th>
+                    <th>Популярность</th>
+                </tr>
+                <tr>
+                    <td><strong>Kaspi.kz</strong></td>
+                    <td>11-13% + 0.95%</td>
+                    <td>FBS (ваш склад)</td>
+                    <td>ИП, Kaspi Pay</td>
+                    <td>⭐⭐⭐⭐⭐ Лидер</td>
+                </tr>
+                <tr>
+                    <td><strong>Wildberries.kz</strong></td>
+                    <td>5-15%</td>
+                    <td>FBS/FBO</td>
+                    <td>ИП, документы</td>
+                    <td>⭐⭐⭐⭐⭐ Топ-2</td>
+                </tr>
+                <tr>
+                    <td><strong>Ozon.kz</strong></td>
+                    <td>7-17.5%</td>
+                    <td>FBS/FBO</td>
+                    <td>ИП, документы</td>
+                    <td>⭐⭐⭐⭐ Растет</td>
+                </tr>
+                <tr>
+                    <td><strong>Satu.kz</strong></td>
+                    <td>3-8%</td>
+                    <td>FBS</td>
+                    <td>ИП</td>
+                    <td>⭐⭐⭐⭐ Популярен</td>
+                </tr>
+                <tr>
+                    <td><strong>Flip.kz</strong></td>
+                    <td>2-5%</td>
+                    <td>FBS</td>
+                    <td>ИП</td>
+                    <td>⭐⭐⭐ Нишевой</td>
+                </tr>
+                <tr>
+                    <td><strong>Mechta.kz</strong></td>
+                    <td>5-10%</td>
+                    <td>FBS</td>
+                    <td>ИП</td>
+                    <td>⭐⭐⭐ Развивается</td>
+                </tr>
+                <tr>
+                    <td><strong>Halyk Market</strong></td>
+                    <td>3-7%</td>
+                    <td>FBS</td>
+                    <td>ИП</td>
+                    <td>⭐⭐⭐ Молодой</td>
+                </tr>
+                <tr>
+                    <td><strong>OLX.kz</strong></td>
+                    <td>0% (бесплатно)</td>
+                    <td>Самовывоз</td>
+                    <td>Нет требований</td>
+                    <td>⭐⭐⭐ Доска объявлений</td>
+                </tr>
+                <tr>
+                    <td><strong>Jusan Магазин</strong></td>
+                    <td>5-12%</td>
+                    <td>FBS</td>
+                    <td>ИП</td>
+                    <td>⭐⭐⭐ Банковский</td>
+                </tr>
+            </table>
+            
+            <h3>Детальное описание каждого маркетплейса</h3>
+            
+            <h4>1. Kaspi.kz 👑 (РЕКОМЕНДУЕТСЯ)</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Лидер рынка (138 млрд тг в 2025)</li>
+                        <li>Самая высокая лояльность покупателей</li>
+                        <li>Быстрые выплаты (ежедневно)</li>
+                        <li>Хорошая поддержка продавцов</li>
+                        <li>Интегрирован с Kaspi Pay</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Высокая комиссия (11-13%)</li>
+                        <li>Строгие требования к качеству</li>
+                        <li>Штрафы за просрочку отгрузки</li>
+                        <li>Нужен статус ИП</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>2. Wildberries.kz 🔥</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Второй по величине (57 млрд тг)</li>
+                        <li>Низкая комиссия (5-15%)</li>
+                        <li>Огромный трафик</li>
+                        <li>FBO опция (склад WB)</li>
+                        <li>Хорошие инструменты аналитики</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Сложная регистрация</li>
+                        <li>Требует сертификаты ЕАС</li>
+                        <li>Долгие выплаты (до 30 дней)</li>
+                        <li>Конкуренция выше</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>3. Ozon.kz 📦</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Растущий маркетплейс (15 млрд тг)</li>
+                        <li>Снизили комиссии в 2025</li>
+                        <li>Удобный кабинет продавца</li>
+                        <li>Хорошая логистика</li>
+                        <li>Поддержка на русском</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Меньше трафика чем Kaspi</li>
+                        <li>Требует документы для регистрации</li>
+                        <li>Комиссия за последнюю милю (5.5%)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>4. Satu.kz 🌟</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Самая низкая комиссия (3-8%)</li>
+                        <li>Казахстанский маркетплейс</li>
+                        <li>Быстрые выплаты</li>
+                        <li>Хорошая поддержка</li>
+                        <li>Растущая популярность</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Меньше трафика</li>
+                        <li>Молодая платформа</li>
+                        <li>Требует ИП</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h4>5. OLX.kz 💰 (Для начинающих)</h4>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Полностью бесплатно</li>
+                        <li>Не нужен ИП</li>
+                        <li>Легко размещать объявления</li>
+                        <li>Прямой контакт с покупателем</li>
+                        <li>Хорошо для локального рынка</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Нет логистики (самовывоз)</li>
+                        <li>Меньше защиты покупателя</li>
+                        <li>Нужно общаться с каждым</li>
+                        <li>Медленнее чем маркетплейсы</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>💡 Стратегия для Атырау:</strong> Начните с Kaspi.kz (максимум трафика), параллельно добавьте Satu.kz (низкая комиссия) и OLX.kz (локальный рынок). Когда наберете обороты, добавьте Wildberries и Ozon.
+            </div>
+        </div>
+        
+        <!-- ПЛОЩАДКИ -->
+        <div id="platforms" class="content-section">
+            <h2>Сравнительная таблица комиссий и доставки</h2>
+            
+            <h3>Полное сравнение всех параметров</h3>
+            <table>
+                <tr>
+                    <th>Маркетплейс</th>
+                    <th>Комиссия</th>
+                    <th>Доставка</th>
+                    <th>Мин. сумма</th>
+                    <th>Сроки выплат</th>
+                    <th>Налоги</th>
+                </tr>
+                <tr>
+                    <td><strong>Kaspi.kz</strong></td>
+                    <td>11-13% + 0.95%</td>
+                    <td>FBS (500-1000 тг)</td>
+                    <td>Нет</td>
+                    <td>1 день</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Wildberries.kz</strong></td>
+                    <td>5-15%</td>
+                    <td>FBS/FBO (включена)</td>
+                    <td>Нет</td>
+                    <td>3-5 дней</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Ozon.kz</strong></td>
+                    <td>7-17.5% + 5.5%</td>
+                    <td>FBS/FBO (включена)</td>
+                    <td>Нет</td>
+                    <td>5-7 дней</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Satu.kz</strong></td>
+                    <td>3-8%</td>
+                    <td>FBS (включена)</td>
+                    <td>Нет</td>
+                    <td>2-3 дня</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Flip.kz</strong></td>
+                    <td>2-5%</td>
+                    <td>FBS (включена)</td>
+                    <td>Нет</td>
+                    <td>1-2 дня</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Mechta.kz</strong></td>
+                    <td>5-10%</td>
+                    <td>FBS (включена)</td>
+                    <td>Нет</td>
+                    <td>3-5 дней</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>Halyk Market</strong></td>
+                    <td>3-7%</td>
+                    <td>FBS (включена)</td>
+                    <td>Нет</td>
+                    <td>2-3 дня</td>
+                    <td>3%</td>
+                </tr>
+                <tr>
+                    <td><strong>OLX.kz</strong></td>
+                    <td>0%</td>
+                    <td>Самовывоз</td>
+                    <td>Нет</td>
+                    <td>Наличные</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td><strong>Jusan Магазин</strong></td>
+                    <td>5-12%</td>
+                    <td>FBS (включена)</td>
+                    <td>Нет</td>
+                    <td>5-7 дней</td>
+                    <td>3%</td>
+                </tr>
+            </table>
+            
+            <h3>Расчет прибыли на разных маркетплейсах</h3>
+            <p><strong>Пример:</strong> Электронный попит, закуп 800 тг, продажа 3500 тг</p>
+            <table>
+                <tr>
+                    <th>Маркетплейс</th>
+                    <th>Комиссия</th>
+                    <th>Налог</th>
+                    <th>Упаковка</th>
+                    <th>Логистика</th>
+                    <th>Прибыль</th>
+                </tr>
+                <tr>
+                    <td><strong>Kaspi.kz</strong></td>
+                    <td>385 тг</td>
+                    <td>105 тг</td>
+                    <td>100 тг</td>
+                    <td>700 тг</td>
+                    <td><strong>1 310 тг</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Wildberries.kz</strong></td>
+                    <td>350 тг</td>
+                    <td>105 тг</td>
+                    <td>100 тг</td>
+                    <td>600 тг</td>
+                    <td><strong>1 345 тг</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Ozon.kz</strong></td>
+                    <td>525 тг</td>
+                    <td>105 тг</td>
+                    <td>100 тг</td>
+                    <td>600 тг</td>
+                    <td><strong>1 170 тг</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Satu.kz</strong></td>
+                    <td>210 тг</td>
+                    <td>105 тг</td>
+                    <td>100 тг</td>
+                    <td>600 тг</td>
+                    <td><strong style="color: #4caf50;">1 485 тг ✅</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Flip.kz</strong></td>
+                    <td>140 тг</td>
+                    <td>105 тг</td>
+                    <td>100 тг</td>
+                    <td>600 тг</td>
+                    <td><strong style="color: #4caf50;">1 555 тг ✅✅</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>OLX.kz</strong></td>
+                    <td>0 тг</td>
+                    <td>0 тг</td>
+                    <td>100 тг</td>
+                    <td>500 тг</td>
+                    <td><strong style="color: #4caf50;">2 000 тг ✅✅✅</strong></td>
+                </tr>
+            </table>
+            
+            <div class="highlight">
+                <strong>💡 Вывод:</strong> OLX дает максимум прибыли, но минимум объема. Kaspi дает оптимальный баланс объема и прибыли.
+            </div>
+            <h2>Сравнение площадок для закупа</h2>
+            
+            <h3>1688.com</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Самые низкие цены</li>
+                        <li>Напрямую от заводов</li>
+                        <li>Огромный выбор</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Только на китайском</li>
+                        <li>Нужен посредник (байер)</li>
+                        <li>Минимум 20-50 кг</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Temu</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Простота (как обычный покупатель)</li>
+                        <li>Интерфейс на русском</li>
+                        <li>Быстрая доставка</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Цены в 2-3 раза выше</li>
+                        <li>Нет сертификатов ЕАС</li>
+                        <li>Риск таможенных пошлин</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Pinduoduo</h3>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ Плюсы</h4>
+                    <ul>
+                        <li>Очень низкие цены</li>
+                        <li>Огромный ассортимент</li>
+                        <li>Часто дешевле Temu</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>❌ Минусы</h4>
+                    <ul>
+                        <li>Интерфейс на китайском</li>
+                        <li>Сложность с возвратом</li>
+                        <li>Нет поддержки на русском</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>📌 Рекомендация:</strong> Для серьезного бизнеса используйте 1688. Для теста — Pinduoduo или Temu.
+            </div>
+        </div>
+        
+        <!-- АТЫРАУ -->
+        <div id="atyrau" class="content-section">
+            <h2>Специфика работы в Атырау</h2>
+            
+            <h3>Пункты приема Kaspi.kz</h3>
+            <div class="address-box">
+                <strong>Основные адреса:</strong>
+                <p>• пр. Сатпаева, 10</p>
+                <p>• мкр. Сарыарка, 40 (постаматы)</p>
+                <p>• Уточняйте в приложении Kaspi Pay → Гид → Пункты приема</p>
+            </div>
+            
+            <h3>Пункты приема Ozon.kz (FBS)</h3>
+            <div class="address-box">
+                <strong>Адреса в Атырау:</strong>
+                <p>• ул. Абая, 13</p>
+                <p>• мкр. Привокзальный-3а, 19а</p>
+                <p>• пр. Исатая Тайманова, 58</p>
+                <p>• ул. Муса Баймуханова (район вокзала)</p>
+            </div>
+            
+            <h3>Упаковка и расходы</h3>
+            <table>
+                <tr>
+                    <th>Вариант упаковки</th>
+                    <th>Стоимость</th>
+                    <th>Для каких товаров</th>
+                </tr>
+                <tr>
+                    <td>Курьер-пакет + пленка</td>
+                    <td>~65 тг</td>
+                    <td>Фингерборды, попиты</td>
+                </tr>
+                <tr>
+                    <td>Коробка + пленка</td>
+                    <td>~180 тг</td>
+                    <td>Хрупкие, электронные</td>
+                </tr>
+                <tr>
+                    <td>Курьер-пакет (средний)</td>
+                    <td>~65 тг</td>
+                    <td>Мягкие игрушки</td>
+                </tr>
+            </table>
+            
+            <div class="highlight">
+                <strong>⏰ Золотое правило:</strong> Отвозите заказы до 14:00. Тогда они уедят из Атырау в тот же день.
+            </div>
+        </div>
+        
+        <!-- КАЛЬКУЛЯТОР -->
+        <div id="calculator" class="content-section">
+            <h2>Калькулятор прибыли</h2>
+            
+            <div class="calculator">
+                <h3>Рассчитайте прибыль для вашего товара</h3>
+                
+                <div class="calc-input">
+                    <label for="purchase_price">Цена закупа (тг):</label>
+                    <input type="number" id="purchase_price" placeholder="Например: 800" value="800">
+                </div>
+                
+                <div class="calc-input">
+                    <label for="sale_price">Цена продажи (тг):</label>
+                    <input type="number" id="sale_price" placeholder="Например: 3500" value="3500">
+                </div>
+                
+                <div class="calc-input">
+                    <label for="marketplace">Выберите маркетплейс:</label>
+                    <select id="marketplace" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;">
+                        <option value="kaspi">Kaspi.kz</option>
+                        <option value="ozon">Ozon.kz</option>
+                    </select>
+                </div>
+                
+                <div class="calc-input">
+                    <label for="quantity">Количество товаров:</label>
+                    <input type="number" id="quantity" placeholder="Например: 100" value="100">
+                </div>
+                
+                <button class="calc-button" onclick="calculateProfit()">Рассчитать</button>
+            </div>
+            
+            <div id="result" class="result">
+                <h4>📊 Результаты расчета:</h4>
+                <div class="result-item">
+                    <span>Цена закупа (за ед.):</span>
+                    <span id="res_purchase">0 тг</span>
+                </div>
+                <div class="result-item">
+                    <span>Цена продажи (за ед.):</span>
+                    <span id="res_sale">0 тг</span>
+                </div>
+                <div class="result-item">
+                    <span>Комиссия маркетплейса:</span>
+                    <span id="res_commission">0 тг</span>
+                </div>
+                <div class="result-item">
+                    <span>Налог (3%):</span>
+                    <span id="res_tax">0 тг</span>
+                </div>
+                <div class="result-item">
+                    <span>Упаковка (100 тг/ед):</span>
+                    <span id="res_packaging">0 тг</span>
+                </div>
+                <div class="result-item">
+                    <span>Логистика (700 тг/ед):</span>
+                    <span id="res_logistics">0 тг</span>
+                </div>
+                <div class="result-item" style="border-top: 2px solid #4caf50; padding-top: 10px; margin-top: 10px; font-weight: bold;">
+                    <span>Прибыль за единицу:</span>
+                    <span id="res_profit_unit">0 тг</span>
+                </div>
+                <div class="result-item" style="font-weight: bold; color: #2e7d32; font-size: 1.1em;">
+                    <span>ОБЩАЯ ПРИБЫЛЬ (на всё количество):</span>
+                    <span id="res_profit_total">0 тг</span>
+                </div>
+                <div class="result-item" style="font-weight: bold; color: #2e7d32;">
+                    <span>ROI (%):</span>
+                    <span id="res_roi">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            // Скрыть все секции
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Показать выбранную секцию
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Обновить активную кнопку
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function calculateProfit() {
+            const purchasePrice = parseFloat(document.getElementById('purchase_price').value) || 0;
+            const salePrice = parseFloat(document.getElementById('sale_price').value) || 0;
+            const marketplace = document.getElementById('marketplace').value;
+            const quantity = parseFloat(document.getElementById('quantity').value) || 1;
+            
+            let commission = 0;
+            if (marketplace === 'kaspi') {
+                commission = salePrice * 0.11 + salePrice * 0.0095; // 11% + 0.95% Kaspi Pay
+            } else {
+                commission = salePrice * 0.15 + salePrice * 0.055; // 15% + 5.5% последняя миля
+            }
+            
+            const tax = salePrice * 0.03;
+            const packaging = 100;
+            const logistics = 700;
+            
+            const totalCosts = purchasePrice + commission + tax + packaging + logistics;
+            const profitUnit = salePrice - totalCosts;
+            const profitTotal = profitUnit * quantity;
+            const roi = (profitUnit / purchasePrice) * 100;
+            
+            // Обновить результаты
+            document.getElementById('res_purchase').textContent = purchasePrice.toLocaleString() + ' тг';
+            document.getElementById('res_sale').textContent = salePrice.toLocaleString() + ' тг';
+            document.getElementById('res_commission').textContent = Math.round(commission).toLocaleString() + ' тг';
+            document.getElementById('res_tax').textContent = Math.round(tax).toLocaleString() + ' тг';
+            document.getElementById('res_packaging').textContent = packaging.toLocaleString() + ' тг';
+            document.getElementById('res_logistics').textContent = logistics.toLocaleString() + ' тг';
+            document.getElementById('res_profit_unit').textContent = Math.round(profitUnit).toLocaleString() + ' тг';
+            document.getElementById('res_profit_total').textContent = Math.round(profitTotal).toLocaleString() + ' тг';
+            document.getElementById('res_roi').textContent = roi.toFixed(2) + '%';
+            
+            // Показать результаты
+            document.getElementById('result').classList.add('show');
+        }
+    </script>
+</body>
+</html>
